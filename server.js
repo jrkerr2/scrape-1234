@@ -58,6 +58,6 @@ app.get('/data', function(req,res){
 
 
 // Set the app to listen on port 3000
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("App running on JOHN's port 3000!");
   });
