@@ -40,31 +40,25 @@ db.on("error", function(error) {
   console.log("Database JOHN_TEST Error:", error);
 });
 
-
-
-// // normally comes from db
-// var data = [
-//   {
-//     title: "great article",
-//     url: "http://google.com",
-//     summary: 'this is so amazing .... check it out!'
-//   },
-//   {
-//     title: "great article 2",
-//     url: "http://google.com",
-//     summary: 'this is so amazing .... check it out!!!!'
-//   },
-//   {
-//     title: "great article 3",
-//     url: "http://google.com",
-//     summary: 'this is so amazing .... check it out! !!!!!!'
-//   }
-// ]
-
 //routes
 app.get('/', function(req,res){
-  res.render('index', {items: data})
-})
+  res.send("JOHN test! 3");
+
+});
+
+app.get("/all", function(req, res) {
+  // Query: In our database, go to the animals collection, then "find" everything
+  db.testCollect.find({}, function(error, found) {
+    // Log any errors if the server encounters one
+    if (error) {
+      console.log(error);
+    }
+    // Otherwise, send the result of this query to the browser
+    else {
+      res.json(found);
+    }
+  });
+});
 
 app.get('/data', function(req,res){
   res.json(data)
