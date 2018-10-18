@@ -1,14 +1,15 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-var cheerio = require('cheerio')
-var request = require('request')
-var mongoose = require('mongoose')
-var exphbs = require('express-handlebars')
+var express = require('express');
+var bodyParser = require('body-parser');
+var cheerio = require('cheerio');
+var request = require('request');
+var mongojs = require('mongojs');
+var mongoose = require('mongoose');
+var exphbs = require('express-handlebars');
 
-var app = express()
+var app = express();
 
-app.engine('handlebars', exphbs({defaulLayout: 'main'}))
-app.set('view engine', 'handlebars')
+app.engine('handlebars', exphbs({defaulLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 
 
