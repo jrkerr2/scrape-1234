@@ -10,8 +10,7 @@ This application is designed to scrape news stories from a pre-determined news f
 - Handlebars
 - Cheerio
 - Request
-- jQuery
-- Ajax
+- Body Parser
 
 ## Installation & use
 - Navigate to the linked URL here: (_waiting for deployment_)
