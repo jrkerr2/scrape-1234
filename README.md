@@ -1,9 +1,9 @@
-## News Scraper
+# News Scraper
 
-# Description
+## Description
 This application is designed to scrape news stories from a pre-determined news feed, present those headlines with summaries to the user, and then to allow user comments associated with those headline/summaries.
 
-# Technologies used
+## Technologies used
 - Node & Express servers
 - Mongo DB
 - Mongoose
@@ -13,5 +13,5 @@ This application is designed to scrape news stories from a pre-determined news f
 - jQuery
 - Ajax
 
-# Installation & use
+## Installation & use
 - Navigate to the linked URL here: (_waiting for deployment_)
