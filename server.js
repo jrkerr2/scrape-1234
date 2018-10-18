@@ -42,7 +42,7 @@ db.on("error", function(error) {
 
 //routes
 app.get('/', function(req,res){
-  res.send("JOHN test! 3");
+  res.send("JOHN test! 4");
 
 });
 
