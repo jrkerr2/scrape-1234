@@ -26,6 +26,19 @@ app.get('/website', function(req, res){
   })
 })
 
+// Database configuration
+// Save the URL of our database as well as the name of our collection
+// var databaseUrl = "root:root@192.168.99.100/zoo?authSource=admin";
+// var collections = ["animals"];
+
+// // Use mongojs to hook the database to the db variable
+// var db = mongojs(databaseUrl, collections);
+
+// // This makes sure that any errors are logged if mongodb runs into an issue
+// db.on("error", function(error) {
+//   console.log("Database Error:", error);
+// });
+
 
 
 // normally comes from db
