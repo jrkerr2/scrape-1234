@@ -28,37 +28,37 @@ app.get('/website', function(req, res){
 
 // Database configuration
 // Save the URL of our database as well as the name of our collection
-// var databaseUrl = "root:root@192.168.99.100/zoo?authSource=admin";
-// var collections = ["animals"];
+var databaseUrl = "root:root@192.168.99.100/john_test?authSource=admin";
+var collections = ["testCollect"];
 
-// // Use mongojs to hook the database to the db variable
-// var db = mongojs(databaseUrl, collections);
+// Use mongojs to hook the database to the db variable
+var db = mongojs(databaseUrl, collections);
 
-// // This makes sure that any errors are logged if mongodb runs into an issue
-// db.on("error", function(error) {
-//   console.log("Database Error:", error);
-// });
+// This makes sure that any errors are logged if mongodb runs into an issue
+db.on("error", function(error) {
+  console.log("Database JOHN_TEST Error:", error);
+});
 
 
 
-// normally comes from db
-var data = [
-  {
-    title: "great article",
-    url: "http://google.com",
-    summary: 'this is so amazing .... check it out!'
-  },
-  {
-    title: "great article 2",
-    url: "http://google.com",
-    summary: 'this is so amazing .... check it out!!!!'
-  },
-  {
-    title: "great article 3",
-    url: "http://google.com",
-    summary: 'this is so amazing .... check it out! !!!!!!'
-  }
-]
+// // normally comes from db
+// var data = [
+//   {
+//     title: "great article",
+//     url: "http://google.com",
+//     summary: 'this is so amazing .... check it out!'
+//   },
+//   {
+//     title: "great article 2",
+//     url: "http://google.com",
+//     summary: 'this is so amazing .... check it out!!!!'
+//   },
+//   {
+//     title: "great article 3",
+//     url: "http://google.com",
+//     summary: 'this is so amazing .... check it out! !!!!!!'
+//   }
+// ]
 
 //routes
 app.get('/', function(req,res){
