@@ -1,29 +1,43 @@
+// require package dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
 var cheerio = require('cheerio');
 var request = require('request');
-var mongojs = require('mongojs');
+
 var mongoose = require('mongoose');
 var exphbs = require('express-handlebars');
 
+// require schema
+var Comment = require('./models/comment')
+var Article = require('./models/article')
+
+// set express server
 var app = express();
 
+// ***Configure middleware***
+// Parse request body as JSON
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// Make public a static folder
+app.use(express.static("public"));
+
+
+// set up templating engine
 app.engine('handlebars', exphbs({defaulLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-// Database configuration
-// Save the URL of our database as well as the name of our collection
-var databaseUrl = "root:root@192.168.99.100/john_test?authSource=admin";
-var collections = ["testCollect"];
-
-// Use mongojs to hook the database to the db variable
-var db = mongojs(databaseUrl, collections);
-
-// This makes sure that any errors are logged if mongodb runs into an issue
-db.on("error", function(error) {
-  console.log("Database JOHN_TEST Error:", error);
+var dbCon = "mongodb://root:root@192.168.99.100/scraped?authSource=admin";
+mongoose.connect(dbCon, { useNewUrlParser: true }, function(error) {
+  if (error) {
+    console.log("Database _S-C-R-A-P-E-D_ Error:", error);
+  }
+  console.log("Connected to: " + dbCon)
 });
 
+// // This makes sure that any errors are logged if mongodb runs into an issue
+// db.on("error", function(error) {
+//   console.log("Database SCRAPED Error:", error);
+// });
 
 
 app.get('/website', function(req, res){
