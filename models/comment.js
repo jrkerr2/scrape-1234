@@ -16,26 +16,16 @@ var CommentSchema = new Schema({
     
   },
     
-  // `date` must be of type Date. The default value is the current date
+  // date comment submitted; default value = current date
   date: {
     type: Date,
     default: Date.now
   },
 
-  // `longstring` must be of type String
-  // `longstring` uses a custom validation function to only accept values 6 characters or more
-  // A custom error message is thrown if the validation fails
-  longstring: {
-    type: String,
-    validate: [
-      // Function takes in the new `longstring` value to be saved as an argument
-      function(input) {
-        // If this returns true, proceed. If not, return the error message below
-        return input.length >= 6;
-      },
-      // Error Message
-      "Longstring should be longer."
-    ]
+  // reference article related to comment
+  article: {
+    type: Schema.ObjectId,
+    ref: 'Article'    
   }
 });
 
