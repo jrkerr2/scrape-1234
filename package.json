@@ -2,7 +2,7 @@
   "name": "scrape-1234",
   "version": "1.0.0",
   "description": "news scraper homework",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
