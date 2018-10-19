@@ -41,16 +41,16 @@ mongoose.connect(dbCon, { useNewUrlParser: true }, function(error) {
 
 
 app.get('/website', function(req, res){
-  request('https://www.quora.com/profile/Pamela-Salon-Syntactics-Inc', function(error, response, body){
+  request('https://www.prnewswire.com/news-releases/news-releases-list/', function(error, response, body){
     // res.send(body)
-    var $ = cheerio.load(body)
-    var urlArray = []
+    var $ = cheerio.load(body);
+    var urlObj = {};
     $('.story_title_container').each(function(){
       var url = $(this).children('div').children('div').children('a').attr('href')
       var title = $(this).children('div').children('div').children('a').children('span').children('span').text()
       array.push({title: title, url: url})
     })
-    res.send(urlArray);
+    res.send(urlObj);
   })
 });
 
