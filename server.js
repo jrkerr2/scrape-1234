@@ -43,19 +43,30 @@ mongoose.connect(dbCon, { useNewUrlParser: true }, function(error) {
 app.get('/website', function(req, res){
   request('https://npr.org/', function(error, response, body){
     // res.send(body)
+    console.log("ON request function...")
     var $ = cheerio.load(body);
-    var result = {};
-    $('.story-text').each(function(){
+    var resultsArray = [];
+    // console.log(body);
+   
+     // $('.teaser').each(function(){
+    $('.story-text').each(function(){   
+      var result = {};
+      // console.log("ON selector...")
+      // console.log(this);
       result.link = $(this).children('a').attr('href');
       result.title = $(this).children('a').children('h3').text();
       result.summary = $(this).children('a').children('p').text();
-      urlObj.push({ 
-        title: title, 
-        link: link, 
-        summary: summary 
-      });
+      // result.summary = $(this).text();
+      console.log("INSIDE: ***** " + result);
+      if (!(result.link == '' || result.title == '' || result.summary == '')) {
+        resultsArray.push(result);
+      }
+        
+      
     });
-    res.send(urlObj);
+    // console.log("OUTSIDE: ***** " + result);
+    // res.send(resultsArray.slice(0,10));
+    res.send("********** DB Success!!! **********")
   })
 });
 
