@@ -41,16 +41,20 @@ mongoose.connect(dbCon, { useNewUrlParser: true }, function(error) {
 
 
 app.get('/website', function(req, res){
-  request('https://text.npr.org/', function(error, response, body){
+  request('https://npr.org/', function(error, response, body){
     // res.send(body)
     var $ = cheerio.load(body);
-    var urlObj = {};
-    $('.story_title_container').each(function(){
-      var url = $(this).children('div').children('div').children('a').attr('href')
-      var title = $(this).children('div').children('div').children('a').children('span').children('span').text()
-      
-      array.push({title: title, url: url})
-    })
+    var result = {};
+    $('.story-text').each(function(){
+      result.link = $(this).children('a').attr('href');
+      result.title = $(this).children('a').children('h3').text();
+      result.summary = $(this).children('a').children('p').text();
+      urlObj.push({ 
+        title: title, 
+        link: link, 
+        summary: summary 
+      });
+    });
     res.send(urlObj);
   })
 });
@@ -58,7 +62,7 @@ app.get('/website', function(req, res){
 
 //GET routes
 app.get('/', function(req,res){
-  res.send("JOHN test! 5");
+  res.send("JOHN test! Sunday");
 
 });
 
