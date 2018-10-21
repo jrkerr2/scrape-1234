@@ -66,7 +66,25 @@ app.get('/website', function(req, res){
     });
     // console.log("OUTSIDE: ***** " + result);
     // res.send(resultsArray.slice(0,10));
-    res.send("********** DB Success!!! **********")
+    resultsArray.slice(0,10).forEach(function(doc) {
+      var article = new Article(doc);
+      
+      // save that entry to the db
+      article.save(function(err, doc) { 
+        // first log any errors
+        if (err) {
+          console.log(err);
+          console.log("DB documents *** NOT *** saved");
+        }
+        // Or log the document
+        else {
+          console.log(doc);
+          console.log("DB documentes saved");
+        }
+      });
+    });
+    res.send("Operation complete");
+    
   })
 });
 

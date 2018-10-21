@@ -8,13 +8,26 @@ var Schema = mongoose.Schema;
 
 // create a new ArticleSchema object
 var ArticleSchema = new Schema({
-  // url is a required field for the link to the scraped article
-  url: {
+  // required fields for the scraped article
+  link: {
     type: String,
     trim: true,
-    required: "String is Required"
+    required: "Link is Required"
+  },
+
+  title: {
+    type: String,
+    trim: true,
+    required: "Title is Required"
+  },
+
+  summary: {
+    type: String,
+    trim: true,
+    required: "Summary is Required"
   },
     
+  // OPTIONAL fields
   // date article scraped; default value = current date
   date: {
     type: Date,
