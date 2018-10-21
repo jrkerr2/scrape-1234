@@ -1,4 +1,4 @@
-# News Scraper
+# NPR News Scraper
 
 ## Description
 This application is designed to scrape news stories from a pre-determined news feed, present those headlines with summaries to the user, and then to allow user comments associated with those headline/summaries.
@@ -13,4 +13,10 @@ This application is designed to scrape news stories from a pre-determined news f
 - Body Parser
 
 ## Installation & use
-- Navigate to the linked URL here: (_waiting for deployment_)
+- Navigate to the URL here: (_waiting for deployment_)
+
+## Technical Debt
+
+## Requirements met
+
+## Requiremtns not met
