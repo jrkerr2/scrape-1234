@@ -18,6 +18,7 @@ var app = express();
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // Make public a static folder
 app.use(express.static("public"));
 
@@ -34,78 +35,61 @@ mongoose.connect(dbCon, { useNewUrlParser: true }, function(error) {
   console.log("Connected to: " + dbCon)
 });
 
-// // This makes sure that any errors are logged if mongodb runs into an issue
-// db.on("error", function(error) {
-//   console.log("Database SCRAPED Error:", error);
-// });
-
-
+// GET routes
 app.get('/website', function(req, res){
   request('https://npr.org/', function(error, response, body){
-    // res.send(body)
-    console.log("ON request function...")
     var $ = cheerio.load(body);
     var resultsArray = [];
-    // console.log(body);
-   
-     // $('.teaser').each(function(){
+       
     $('.story-text').each(function(){   
       var result = {};
-      // console.log("ON selector...")
-      // console.log(this);
+      
       result.link = $(this).children('a').attr('href');
       result.title = $(this).children('a').children('h3').text();
       result.summary = $(this).children('a').children('p').text();
-      // result.summary = $(this).text();
-      console.log("INSIDE: ***** " + result);
+    
       if (!(result.link == '' || result.title == '' || result.summary == '')) {
         resultsArray.push(result);
-      }
-        
-      
+      }      
     });
-    // console.log("OUTSIDE: ***** " + result);
-    // res.send(resultsArray.slice(0,10));
+    
     resultsArray.slice(0,10).forEach(function(doc) {
       var article = new Article(doc);
       
-      // save that entry to the db
+      // save each to the db
       article.save(function(err, doc) { 
-        // first log any errors
+        // log any errors
         if (err) {
           console.log(err);
           console.log("DB documents *** NOT *** saved");
         }
-        // Or log the document
+        // or log the document and report success
         else {
           console.log(doc);
-          console.log("DB documentes saved");
+          console.log("DB documents saved");
         }
       });
     });
-    res.send("Operation complete");
+    // re-direct to the ALL route after the scrape & save
+    res.redirect('/all');
     
   })
 });
 
-
-//GET routes
 app.get('/', function(req,res){
   res.send("JOHN test! Sunday");
-
 });
 
-app.get("/all", function(req, res) {
-  // Query: In our database, go to the animals collection, then "find" everything
-  db.testCollect.find({}, function(error, found) {
-    // Log any errors if the server encounters one
+app.get('/all', function(req,res){  
+  Article.find({}, function(error, doc) {
+    // Log any errors
     if (error) {
       console.log(error);
     }
-    // Otherwise, send the result of this query to the browser
+    // Or send the doc to the browser as a json object
     else {
-      res.json(found);
-    }
+      res.render( "index", { items:doc } )
+    };
   });
 });
 
@@ -115,32 +99,15 @@ app.get('/data', function(req,res){
 
 // POST routes
 app.post("/addExample", function(req, res) {
-  // Query: In our database, go to the animals collection, then "find" everything
   db.testCollect.find({}, function(error, found) {
-    // Log any errors if the server encounters one
+    // Log any errors
     if (error) {
       console.log(error);
     }
-    // Otherwise, send the result of this query to the browser
+    // Otherwise send the result to the browser
     else {
       res.json(found);
     }
-  });
-});
-
-app.post('/add', (req, res, next) => {
-
-  var name = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name
-  };
-
-  dbase.collection("name").save(name, (err, result) => {
-    if(err) {
-      console.log(err);
-    }
-
-    res.send('name added successfully');
   });
 });
 

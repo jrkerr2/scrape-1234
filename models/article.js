@@ -34,6 +34,11 @@ var ArticleSchema = new Schema({
     default: Date.now
   },
 
+  opinions: {
+    type: String,
+    trim: true
+  },
+
   // reference comments related to article
   comments: {
     type: Schema.ObjectId,
@@ -42,8 +47,8 @@ var ArticleSchema = new Schema({
   }
 });
 
-// This creates our model from the above schema, using mongoose's model method
+// create a model from the above schema using the mongoose model method
 var Article = mongoose.model("Article", ArticleSchema);
 
-// Export the Example model
+// export the model
 module.exports = Article;
