@@ -20,8 +20,11 @@ This application is designed to scrape news stories from a pre-determined news f
 ## Requirements met
 - scrape headlines (*)
 - save headlines, links, and summaries to Mongo database via Mongoose (*)
-- save user comments, associate with articles (*)
-- 
+- display DB-extracted headlines to users
+- allow user to save comments, associate with articles, and then delete comments (*)
+- allow all users to see all articles and all comments (*)
+- do not clear database on every scrape (*)
+- do not insert duplicate articles into database (*)
 
 ## Requiremtns not met
 - deploy to Heroku with mLab (a credit card is required with DBs)
