@@ -1,7 +1,7 @@
-# NPR News Scraper (in progress 10/22/18)
+# TOP 10 NPR News Scraper (in progress 10/22/18)
 
 ## Description
-This application is designed to scrape news stories from a pre-determined news feed, present those headlines with summaries to the user, then to allow user comments associated with those headline/summaries.
+This application is designed to present a limited scrape from the NPR news feed, present those headlines with summaries to the user (from the Mongo database), then allow the user to comment to associated headlines/summaries.
 
 ## Technologies used
 - Node & Express servers
@@ -32,3 +32,4 @@ This application is designed to scrape news stories from a pre-determined news f
 
 ## Requirements not met
 - deploy to Heroku with mLab (a credit card is required with DBs)
+- link from Profile (in progress 10/22/18)
