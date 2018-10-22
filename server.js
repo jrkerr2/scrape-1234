@@ -109,7 +109,7 @@ app.get('/all', function(req, res){
 
 // PUT (UPDATE) routes
 app.put('/comments/:_id', function(req, res) {
-  
+  console.log("Doing PUT stuff");
   Article.findByIdAndUpdate(req.params._id, req.body, function (err, article) {
     if (!article) {
       console.log(err);
