@@ -28,24 +28,28 @@ var ArticleSchema = new Schema({
     required: "Summary is Required"
   },
     
-  // OPTIONAL fields
+  
   // date article scraped; default value = current date
   date: {
     type: Date,
     default: Date.now
   },
 
-  opinions: {
-    type: String,
-    trim: true
-  },
+  // OPTIONAL fields
+  // flat-file-type representation of commment related to parent article
+  notes: [{ 
+    comment: { type: String },
+    posted: { type: Date, default: Date.now },
+    user: { type: String, default: "anonymous" }
+  
+  }]
 
-  // reference comments related to article
-  comments: {
-    type: Schema.ObjectId,
-    ref: 'Comment'
+  // // reference comments schema - related to article
+  // comments: {
+  //   type: Schema.ObjectId,
+  //   ref: 'Comment'
     
-  }
+  // }
 });
 
 // create a model from the above schema using the mongoose model method
