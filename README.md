@@ -18,7 +18,7 @@ This application is designed to scrape news stories from a pre-determined news f
 ## Technical Debt
 
 ## Requirements met
-- scrape headlines (*)
+- scrape headlines from external soure (*)
 - save headlines, links, and summaries to Mongo database via Mongoose (*)
 - display DB-extracted headlines to users
 - allow user to save comments, associate with articles, and then delete comments (*)
@@ -26,5 +26,5 @@ This application is designed to scrape news stories from a pre-determined news f
 - do not clear database on every scrape (*)
 - do not insert duplicate articles into database (*)
 
-## Requiremtns not met
+## Requirements not met
 - deploy to Heroku with mLab (a credit card is required with DBs)
