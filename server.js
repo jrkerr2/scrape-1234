@@ -20,11 +20,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Make public a static folder
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 
 // set up templating engine
-app.engine('handlebars', exphbs({defaulLayout: 'main'}));
+app.engine('handlebars', exphbs({ defaulLayout: 'main'} ));
 app.set('view engine', 'handlebars');
 
 var dbCon = "mongodb://root:root@192.168.99.100/scraped?authSource=admin";
@@ -90,11 +90,20 @@ app.get('/find/:_id', function(req, res){
   });
 });
 
-app.get('/', function(req, res){
-  res.send("JOHN test! Monday");
+app.get('/all', function(req, res){
+  Article.find({}, function(error, doc) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+    // Or send the doc to the browser as a json object
+    else {
+      res.send(doc);
+    };
+  });
 });
 
-app.get('/all', function(req, res){  
+app.get('/', function(req, res){  
   Article.find({}, function(error, doc) {
     // Log any errors
     if (error) {

@@ -25,6 +25,7 @@ This application is designed to present a limited scrape from the NPR news feed,
 - scrape headlines from external soure (*)
 - save headlines, links, and summaries to Mongo database via Mongoose (*)
 - display DB-extracted headlines to users
+- use 
 - allow user to save comments, associate with articles, and then delete comments (*)
 - allow all users to see all articles and all comments (*)
 - do not clear database on every scrape (*)
