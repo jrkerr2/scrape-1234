@@ -11,6 +11,7 @@ var ArticleSchema = new Schema({
   // required fields for the scraped article
   link: {
     type: String,
+    unique: true,
     trim: true,
     required: "Link is Required"
   },
