@@ -1,9 +1,8 @@
 // require package dependencies
 var express = require('express');
-var bodyParser = require('body-parser');
+// var bodyParser = require('body-parser');
 var cheerio = require('cheerio');
 var request = require('request');
-
 var mongoose = require('mongoose');
 var exphbs = require('express-handlebars');
 
@@ -11,12 +10,13 @@ var exphbs = require('express-handlebars');
 var Comment = require('./models/comment')
 var Article = require('./models/article')
 
-// set express server
+// set up express server
 var app = express();
 
 // ***Configure middleware***
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
+// app.use(bodyParser);
 app.use(express.json());
 
 // Make public a static folder
@@ -76,11 +76,25 @@ app.get('/website', function(req, res){
   })
 });
 
-app.get('/', function(req,res){
-  res.send("JOHN test! Sunday");
+app.get('/find/:_id', function(req, res){
+  var _id = req.params._id
+  Article.findOne({_id: _id}, function (err, article) { 
+    if (!article) {
+      console.log(err);
+      console.log("Document not found");
+    }
+    else {
+      res.send(article);      
+    }
+  
+  });
 });
 
-app.get('/all', function(req,res){  
+app.get('/', function(req, res){
+  res.send("JOHN test! Monday");
+});
+
+app.get('/all', function(req, res){  
   Article.find({}, function(error, doc) {
     // Log any errors
     if (error) {
@@ -93,8 +107,19 @@ app.get('/all', function(req,res){
   });
 });
 
-app.get('/data', function(req,res){
-  res.json(data)
+// PUT (UPDATE) routes
+app.put('/comments/:_id', function(req, res) {
+  
+  Article.findByIdAndUpdate(req.params._id, req.body, function (err, article) {
+    if (!article) {
+      console.log(err);
+    }
+    else {
+      res.redirect('/all');
+    }
+  });
+
+  
 });
 
 // POST routes
