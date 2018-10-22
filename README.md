@@ -13,6 +13,10 @@ This application is designed to scrape news stories from a pre-determined news f
 - Body Parser
 
 ## Installation & use
+- Run a MongoDB with Mongoose installed as ODM (developed using a Docker instance of Mongo)
+- Press `Scrape` button to update to the latest NPR articles (latest 10)
+- Read the provided summaries, clink on any desired links
+- Add or delete comments as needed/desired
 - Navigate to the URL via localhost: <link here>
 
 ## Technical Debt
