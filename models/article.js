@@ -36,7 +36,7 @@ var ArticleSchema = new Schema({
   },
 
   // OPTIONAL fields
-  // flat-file-type representation of commments related to parent article
+  // flat-file-type array representation of commments related to parent article
   notes: [{ 
     comment: { type: String },
     posted: { type: Date, default: Date.now },
