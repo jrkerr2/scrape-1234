@@ -34,8 +34,8 @@ This application is designed to present a limited scrape from the NPR news feed,
 - allow user to save comments, associate with articles, and then delete comments (*)
 - allow all users to see all articles and all comments (*)
 - do not clear database on every scrape (*)
-- do not insert duplicate articles into database (*) <duplicates not allowed on link attr in schema design>
+- do not insert duplicate articles into database (*) <dupes not allowed on link attr in schema design>
 
 ## Requirements not met
 - deploy to Heroku with mLab (a credit card is required with DBs)
-- link from Profile (in progress 10/22/18)
+- link from Profile (in progress 10/23/18)
