@@ -1,4 +1,4 @@
-# TOP 10 NPR News Scraper (in progress 10/22/18)
+# TOP 10 NPR News Scraper (in progress 10/23/18)
 
 ## Description
 This application is designed to present a limited scrape from the NPR news feed, present those headlines with summaries to the user (from the Mongo database), then allow the user to comment to associated headlines/summaries.
@@ -13,13 +13,15 @@ This application is designed to present a limited scrape from the NPR news feed,
 - Body Parser
 
 ## Installation & use
+- use Node/Express to set up server side, middleware, etc.
 - Run a MongoDB with Mongoose installed as ODM (developed using a Docker instance of Mongo)
-- Press `Scrape` button to update to the latest NPR articles (latest 10)
+- Press `Refresh Articles` button to update to the latest NPR articles (latest 10)
 - Read the provided summaries, clink on any desired links
 - Add or delete comments as needed/desired
-- Navigate to the URL via localhost: <link here>
+- Navigate to the URL via localhost: <http://localhost:3000/>
 
 ## Technical Debt
+- Comment inserts are not working yet; delete will be added later
 
 ## Requirements met
 - scrape headlines from external soure (*)
