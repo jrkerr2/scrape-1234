@@ -71,7 +71,7 @@ app.get('/website', function(req, res){
       });
     });
     // re-direct to the ALL route after the scrape & save
-    res.redirect('/all');
+    res.redirect('/');
     
   })
 });
