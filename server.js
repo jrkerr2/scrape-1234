@@ -37,6 +37,7 @@ mongoose.connect(dbCon, { useNewUrlParser: true }, function(error) {
 
 // GET routes
 app.get('/website', function(req, res){
+  console.log("got to beginning of scrape route");
   request('https://npr.org/', function(error, response, body){
     var $ = cheerio.load(body);
     var resultsArray = [];
@@ -71,6 +72,7 @@ app.get('/website', function(req, res){
       });
     });
     // re-direct to the ALL route after the scrape & save
+    console.log("got to end of scrape route");
     res.redirect('/');
     
   })

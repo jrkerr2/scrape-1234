@@ -13,15 +13,18 @@ This application is designed to present a limited scrape from the NPR news feed,
 - Body Parser
 
 ## Installation & use
-- use Node/Express to set up server side, middleware, etc.
+- use Node/Express to set up server side, middleware, etc. (see source code here for details)
 - Run a MongoDB with Mongoose installed as ODM (developed using a Docker instance of Mongo)
-- Press `Refresh Articles` button to update to the latest NPR articles (latest 10)
+- Click `Update NPR News` button to update to the latest NPR articles (latest 10)
 - Read the provided summaries, clink on any desired links
 - Add or delete comments as needed/desired
 - Navigate to the URL via localhost: <http://localhost:3000/>
 
 ## Technical Debt
 - Comment inserts are not working yet; delete will be added later
+- main.handlebars not engaging (?)
+- redirect from scrape intermittently fails
+- no indication to user that new articles are retrieved no that new articles are not available
 
 ## Requirements met
 - scrape headlines from external soure (*)
@@ -31,7 +34,7 @@ This application is designed to present a limited scrape from the NPR news feed,
 - allow user to save comments, associate with articles, and then delete comments (*)
 - allow all users to see all articles and all comments (*)
 - do not clear database on every scrape (*)
-- do not insert duplicate articles into database (*)
+- do not insert duplicate articles into database (*) <duplicates not allowed on link attr in schema design>
 
 ## Requirements not met
 - deploy to Heroku with mLab (a credit card is required with DBs)
