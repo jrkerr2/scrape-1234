@@ -39,4 +39,4 @@ This application is designed to present a limited scrape from the NPR news feed,
 
 ## Requirements not met
 - deploy to Heroku with mLab (a credit card is required with DBs)
-- link from Profile (in progress 10/23/18)
+- link from Profile (will not advertise unless deployed)
