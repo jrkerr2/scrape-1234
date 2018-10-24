@@ -17,7 +17,7 @@
       <div class="card-body">
         <h2><a href="{{link}}">{{title}}</a></h2>      
         <p>{{summary}}</p>
-        <button type="button" data-id="{{_id}}" data-title="{{title}}" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" data-id="{{_id}}" data-title="{{title}}" id="body-btn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           Add Comment
         </button>
       </div>
@@ -52,11 +52,11 @@
 
 <script>
   var dataId = 0;
-  $(".btn").on("click", function() {
+  $("#body-btn").on("click", function() {
 
     var title = $(this).attr("data-title");
     dataId = $(this).attr("data-id");
-    console.log(dataId);
+    console.log("Data ID: " + dataId);
     $(".modal-title").text(title);
     
   })
@@ -66,7 +66,7 @@
       event.preventDefault();
       var comment = $("#text-area").val().trim();
       console.log(comment);
-      console.log(dataId);
+      console.log("Comment data ID: " + dataId);
       // make a post request to /add-comment
   }) 
 
