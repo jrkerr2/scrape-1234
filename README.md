@@ -1,4 +1,4 @@
-# TOP 10 NPR News Scraper (in progress 10/23/18)
+# TOP 10 NPR News Scraper (in progress 10/24/18)
 
 ## Description
 This application is designed to present a limited scrape from the NPR news feed, present those headlines with summaries to the user (from the Mongo database), then allow the user to comment to associated headlines/summaries.
