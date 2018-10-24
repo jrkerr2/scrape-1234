@@ -25,7 +25,8 @@ This application is designed to present a limited scrape from the NPR news feed,
 - main.handlebars not engaging (?)
 - redirect from scrape intermittently fails
 - no indication to user that new articles are retrieved nor that new articles are not available
-- .push conditional for article object array suspect; may need refactoring
+- modal data passing not working with IDs, only classes; Bootstrap formatting deprecated as a result
+- comment data not cleared after modal close
 
 ## Requirements met
 - scrape headlines from external soure (*) `npr.org`

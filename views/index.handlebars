@@ -17,7 +17,7 @@
       <div class="card-body">
         <h2><a href="{{link}}">{{title}}</a></h2>      
         <p>{{summary}}</p>
-        <button type="button" data-id="{{_id}}" data-title="{{title}}" id="body-btn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" data-id="{{_id}}" data-title="{{title}}" class="bob-ad" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           Add Comment
         </button>
       </div>
@@ -52,7 +52,7 @@
 
 <script>
   var dataId = 0;
-  $("#body-btn").on("click", function() {
+  $(".bob-ad").on("click", function() {
 
     var title = $(this).attr("data-title");
     dataId = $(this).attr("data-id");

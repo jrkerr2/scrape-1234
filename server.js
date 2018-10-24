@@ -15,9 +15,11 @@ var app = express();
 
 // ***Configure middleware***
 // Parse request body as JSON
-app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser);
-app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser);
+// app.use(express.json());
 
 // Make public a static folder
 // app.use(express.static("public"));
