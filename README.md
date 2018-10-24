@@ -3,7 +3,7 @@
 ## Description
 This application is designed to present a limited scrape from the NPR news feed, present those headlines with summaries to the user (from the Mongo database), then allow the user to comment to associated headlines/summaries.
 
-## Technologies used
+## Technologies Used
 - Node & Express servers
 - Mongo DB
 - Mongoose
@@ -12,7 +12,7 @@ This application is designed to present a limited scrape from the NPR news feed,
 - Request
 - Body Parser
 
-## Installation & use
+## Installation & Use
 - use Node/Express to set up server side, middleware, etc. (see source code here for details)
 - Run a MongoDB with Mongoose installed as ODM (developed using a Docker instance of Mongo)
 - Navigate to the URL via localhost: <http://localhost:3000/>
@@ -28,7 +28,7 @@ This application is designed to present a limited scrape from the NPR news feed,
 - modal data passing not working with IDs, only classes; Bootstrap formatting deprecated as a result
 - comment data not cleared after modal close
 
-## Requirements met
+## Requirements Met
 - scrape headlines from external soure (*) `npr.org`
 - save headlines, links, and summaries to Mongo database via Mongoose (*) `save made to mongo via mongoose odm`
 - display DB-extracted headlines to users `root path displays articles from db`
@@ -37,6 +37,6 @@ This application is designed to present a limited scrape from the NPR news feed,
 - do not clear database on every scrape (*) `just don't`
 - do not insert duplicate articles into database (*) `dupes not allowed on link attr in schema design`
 
-## Requirements not met
+## Requirements Not Met
 - deploy to Heroku with mLab (a credit card is required with DBs; `showstopper`)
 - link from Profile (will not advertise unless deployed)
