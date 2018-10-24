@@ -1,6 +1,6 @@
 // require package dependencies
 var express = require('express');
-// var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var cheerio = require('cheerio');
 var request = require('request');
 var mongoose = require('mongoose');
@@ -16,7 +16,7 @@ var app = express();
 // ***Configure middleware***
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
-// app.use(bodyParser);
+app.use(bodyParser);
 app.use(express.json());
 
 // Make public a static folder
