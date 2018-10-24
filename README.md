@@ -15,10 +15,10 @@ This application is designed to present a limited scrape from the NPR news feed,
 ## Installation & use
 - use Node/Express to set up server side, middleware, etc. (see source code here for details)
 - Run a MongoDB with Mongoose installed as ODM (developed using a Docker instance of Mongo)
+- Navigate to the URL via localhost: <http://localhost:3000/>
 - Click `Update NPR News` button to update to the latest NPR articles (latest 10)
 - Read the provided summaries, clink on any desired links
 - Add or delete comments as needed/desired
-- Navigate to the URL via localhost: <http://localhost:3000/>
 
 ## Technical Debt
 - Comment inserts are not working yet; delete will be added later
@@ -38,5 +38,5 @@ This application is designed to present a limited scrape from the NPR news feed,
 - do not insert duplicate articles into database (*) `dupes not allowed on link attr in schema design`
 
 ## Requirements not met
-- deploy to Heroku with mLab (a credit card is required with DBs)
+- deploy to Heroku with mLab (a credit card is required with DBs; `showstopper`)
 - link from Profile (will not advertise unless deployed)
