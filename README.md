@@ -1,4 +1,4 @@
-# TOP 10 NPR News Scraper (in progress 10/24/18)
+# TOP 10 NPR News Scraper
 
 ## Description
 This application is designed to present a limited scrape from the NPR news feed, present those headlines with summaries to the user (from the Mongo database), then allow the user to comment to associated headlines/summaries.
@@ -11,6 +11,7 @@ This application is designed to present a limited scrape from the NPR news feed,
 - Cheerio
 - Request
 - Body Parser
+- Bootstrap 4
 
 ## Installation & Use
 - use Node/Express to set up server side, middleware, etc. (see source code here for details)
@@ -21,10 +22,10 @@ This application is designed to present a limited scrape from the NPR news feed,
 - Add or delete comments as needed/desired
 
 ## Technical Debt
-- Comment inserts are not working yet; delete will be added later
+- Comment inserts are not working yet; `put route working through Postman, but not through comments form`
+- Delete comments functionality not yet added `nice to have: delete only by auth user`
 - main.handlebars not engaging (?)
-- redirect from scrape intermittently fails
-- no indication to user that new articles are retrieved nor that new articles are not available
+- no indication to user that new articles are retrieved nor that new articles are not available (sort with ID?)
 - modal data passing not working with IDs, only classes; Bootstrap formatting deprecated as a result
 - comment data not cleared after modal close
 
@@ -39,4 +40,4 @@ This application is designed to present a limited scrape from the NPR news feed,
 
 ## Requirements Not Met
 - deploy to Heroku with mLab (a credit card is required with DBs; `showstopper`)
-- link from Profile (will not advertise unless deployed)
+- link from Profile (will not advertise unless complete and deployed)

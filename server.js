@@ -121,9 +121,9 @@ app.get('/', function(req, res){
 });
 
 // PUT (UPDATE) routes
-app.put('/comments/:_id', function(req, res) {
+app.put('/comments', function(req, res) {
   console.log("Doing PUT stuff");
-  Article.findByIdAndUpdate(req.params._id, req.body, function (err, article) {
+  Article.findByIdAndUpdate(req.body.id, req.body.note, function (err, article) {
     if (!article) {
       console.log(err);
     }
